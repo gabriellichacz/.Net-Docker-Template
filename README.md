@@ -34,9 +34,9 @@ docker-compose -f deploy/docker-compose.yml exec db bash
 ## .Net
 
 ### First setting up .Net project
-appsettings.json contains default settings.
+appsettings.json contains default settings.  
 appsettings.Development.json contains settings for develop environment. Copying all configs from appsettings.json not neccesary. Write down only the ones which you want to overwrite.
 
 ### Test
-Port is configured in appsettings.{ENV}.json for specific environments.
+Port is configured in appsettings.{ENV}.json for specific environments.  
 http://localhost:{PORT}/weatherforecast
