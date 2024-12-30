@@ -21,12 +21,12 @@ docker-compose -f deploy/docker-compose.yml down
 docker-compose -f deploy/docker-compose.yml ps
 </pre>
 
-**Enter cms-app container**
+**Enter dotnet-app container**
 <pre>
 docker-compose -f deploy/docker-compose.yml exec app bash
 </pre>
 
-**Enter MySQL container**
+**Enter Postgres container**
 <pre>
 docker-compose -f deploy/docker-compose.yml exec db bash
 </pre>
@@ -34,3 +34,5 @@ docker-compose -f deploy/docker-compose.yml exec db bash
 ## .Net
 
 ### First setting up .Net project
+appsettings.json contains default settings.
+appsettings.Development.json contains settings for develop environment. Copying all configs from appsettings.json not neccesary. Write down only the ones which you want to overwrite.
