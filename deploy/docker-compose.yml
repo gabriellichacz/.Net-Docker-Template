@@ -1,0 +1,36 @@
+services:
+  app:
+    container_name: dotnet-app
+    build:
+      context: ../
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "5028:5028"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Database=cms;Username=admin;Password=admin
+    depends_on:
+      - db
+    networks:
+      - dotnet-network
+
+  db:
+    image: postgres:15
+    container_name: dotnet-postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: cms
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dotnet-network
+
+volumes:
+  postgres_data:
+
+networks:
+  dotnet-network:
+    driver: bridge
